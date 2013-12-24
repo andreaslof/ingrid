@@ -1,0 +1,46 @@
+$cols:  24;
+$gutter: 2%;
+
+@mixin cols($num) {
+  width: ($one_col * $num) + ($gutter * ($num - 1));
+}
+
+@mixin sub_cols($num_child, $num_parent) {
+  $parent_size: ($one_col * $num_parent) + ($gutter * ($num_parent - 1));
+  $child_size: ($one_col * $num_child) + ($gutter * ($num_child - 1));
+  margin-left: ($gutter / $parent_size) * 100%;
+  width: ($child_size / $parent_size) * 100%;
+}
+
+@mixin ingrid($cols, $gutter) {
+  $one_col: (100% - ($gutter * ($cols - 1))) / $cols;
+
+  .row {
+    #{enumerate('.span', 1, $cols, '')} {
+      clear: none;
+      float: left;
+      margin-left: $gutter;
+
+      &:after {
+        content: "";
+      }
+    }
+
+    @for $i from 1 through $cols {
+      .span#{$i} {
+        @include cols($i);
+
+        @for $j from 1 through ($i - 1) {
+          .span#{$j} {
+            @include sub_cols($j, $i);
+          }
+        }
+      }
+    }
+
+    > :first-child,
+    .row > :first-child {
+      margin-left: 0;
+    }
+  }
+}
