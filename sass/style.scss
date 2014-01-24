@@ -1,1 +1,66 @@
-@import "grid/_ingrid";
+@import "grid/system";
+@import "compass/css3";
+@import "compass/reset";
+@import "compass/typography";
+
+$background-color: #efefef;
+$font-family: Helvetica, Arial, sans-serif;
+
+body {
+  background: $background-color;
+  font-family: $font-family;
+  padding: 2em 0;
+  text-rendering: optimizeLegibility;
+  width: 100%;
+  word-spacing: -0.03em;
+  -webkit-font-smoothing: antialiased;
+
+  #wrap {
+    margin: 0 auto;
+    max-width: 1040px;
+    width: 100%;
+  }
+}
+
+section {
+  @include container;
+  margin: 0 0 1%;
+  text-align: center;
+}
+
+h1 {
+  @include adjust-font-size-to(36px, 1.5);
+  font-weight: 300;
+  margin: 0 0 2em;
+  text-align: center;
+}
+
+h3 {
+  @include adjust-font-size-to(18px, 0.8);
+  font-weight: 300;
+  margin: 0 0 1em;
+}
+
+.box {
+  background: #1500ff;
+  @include border-radius(3px, 3px);
+  box-sizing: border-box;
+  color: #efefef;
+  float: left;
+  font-weight: 500;
+  @include adjust-font-size-to(16px, 0.8);
+  height: auto;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+
+  + .box {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 1160px) {
+  body #wrap {
+    max-width: 80%;
+  }
+}

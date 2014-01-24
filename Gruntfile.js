@@ -12,23 +12,70 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeomanConfig: yeomanConfig,
+    clean: {
+      dist: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp',
+            '<%= yeomanConfig.dist %>/*',
+            '!<%= yeomanConfig.dist %>/.git*'
+          ]
+        }]
+      }
+    },
     compass: {
       all: {
         options: {
           sassDir: 'sass',
-          cssDir: 'css',
-          specify: 'style.scss'
+          specify: 'style.scss',
           outputStyle: 'compressed'
         }
+      },
+      dev: {
+        options: {
+          cssDir: 'css',
+          outputStyle: 'compressed'
+        }
+      },
+      dist: {
+        options: {
+          cssDir: '<%= yeomanConfig.dist %>/css',
+          outputStyle: 'compressed'
+        }
+      }
+    },
+    copy: {
+      dist: {
+        files: [
+          {
+            expand: true,
+            src: ['./index.html'],
+            dest: '<%= yeomanConfig.dist %>/',
+            filter: 'isFile'
+          }
+        ]
       }
     },
     watch: {
       compass: {
         files: [
-          'app/wp-content/themes/<%= yeomanConfig.themeName %>/sass/{,*/}*.scss'
+          'sass/{,*/}*.scss'
         ],
-        tasks: ['compass:all']
+        tasks: ['compass:dev']
       }
     }
   });
+
+  grunt.registerTask('dev', function (target) {
+      grunt.task.run([
+          'watch'
+      ]);
+  });
+
+  grunt.registerTask('build', [
+      'clean:dist',
+      'compass:dist',
+      'copy:dist'
+  ]);
 }
