@@ -1,5 +1,4 @@
-$cols:  24;
-$gutter: 2%;
+@import "compass/utilities/general/clearfix";
 
 @function column-width($n, $gutter-width, $col-width) {
   @return $col-width * $n + $gutter-width * ($n - 1);

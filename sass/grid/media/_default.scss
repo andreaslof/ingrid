@@ -1,0 +1,5 @@
+$units: 2 4 6 8 10 12 14 16 18 20 22 24;
+$gutter-width: 1%;
+$pad-units: $units;
+
+@include ingrid($units, $gutter-width, 24, 'd', $pad-units);

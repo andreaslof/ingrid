@@ -1,0 +1,17 @@
+.l-3c {
+  @include container;
+  
+  .c1 {
+    @extend .span-d-8;
+    @extend .d-f;
+  }
+
+  .c2 {
+    @extend .span-d-8;
+  }
+
+  .c3 {
+    @extend .span-d-8;
+    @extend .d-l;
+  }
+}

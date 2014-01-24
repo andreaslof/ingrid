@@ -1,0 +1,39 @@
+.l-2c {
+  @include container;
+
+  .c1 {
+    @extend .span-d-16;
+    @extend .span-ml-8;
+    @extend .span-m-12;
+    @extend .d-f;
+  }
+
+  .c2 {
+    @extend .span-d-8;
+    @extend .span-ml-4;
+    @extend .span-m-12;
+    @extend .d-l;
+  }
+}
+
+.l-2cr {
+  @include container;
+
+  .c1 {
+    @extend .span-d-16;
+    @extend .push-d-8;
+    @extend .span-ml-8;
+    @extend .push-ml-4;
+    @extend .span-m-12;
+    @extend .d-f;
+  }
+
+  .c2 {
+    @extend .span-d-8;
+    @extend .pull-d-16;
+    @extend .span-ml-4;
+    @extend .pull-d-8;
+    @extend .span-m-12;
+    @extend .d-l;
+  }
+}
