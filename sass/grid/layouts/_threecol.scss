@@ -4,14 +4,20 @@
   .c1 {
     @extend .span-d-8;
     @extend .d-f;
+    @extend .span-ml-4;
+    @extend .span-m-12;
   }
 
   .c2 {
     @extend .span-d-8;
+    @extend .span-ml-4;
+    @extend .span-m-12;
   }
 
   .c3 {
     @extend .span-d-8;
     @extend .d-l;
+    @extend .span-ml-4;
+    @extend .span-m-12;
   }
 }

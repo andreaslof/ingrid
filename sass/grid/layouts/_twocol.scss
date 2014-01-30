@@ -3,15 +3,17 @@
 
   .c1 {
     @extend .span-d-16;
+    @extend .span-tp-8;
     @extend .span-ml-8;
-    @extend .span-m-12;
+    @extend .span-m-6;
     @extend .d-f;
   }
 
   .c2 {
     @extend .span-d-8;
+    @extend .span-tp-4;
     @extend .span-ml-4;
-    @extend .span-m-12;
+    @extend .span-m-6;
     @extend .d-l;
   }
 }
@@ -22,18 +24,20 @@
   .c1 {
     @extend .span-d-16;
     @extend .push-d-8;
-    @extend .span-ml-8;
-    @extend .push-ml-4;
-    @extend .span-m-12;
+    @extend .span-tp-8;
+    @extend .push-tp-4;
+    @extend .span-m-8;
+    @extend .push-m-4;
     @extend .d-f;
   }
 
   .c2 {
     @extend .span-d-8;
     @extend .pull-d-16;
-    @extend .span-ml-4;
-    @extend .pull-d-8;
-    @extend .span-m-12;
+    @extend .span-tp-4;
+    @extend .pull-tp-8;
+    @extend .span-m-4;
+    @extend .pull-m-8;
     @extend .d-l;
   }
 }

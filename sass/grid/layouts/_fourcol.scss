@@ -4,12 +4,17 @@
   .c1 {
     @extend .span-d-6;
     @extend .d-f;
+    @extend .span-tp-6;
+    @extend .tp-f;
     @extend .span-ml-6;
+    @extend .ml-f;
     @extend .span-m-12;
   }
 
   .c2 {
     @extend .span-d-6;
+    @extend .span-tp-6;
+    @extend .tp-l;
     @extend .span-ml-6;
     @extend .ml-l;
     @extend .span-m-12;
@@ -17,6 +22,8 @@
 
   .c3 {
     @extend .span-d-6;
+    @extend .span-tp-6;
+    @extend .tp-f;
     @extend .span-ml-6;
     @extend .ml-f;
     @extend .span-m-12;
@@ -25,7 +32,10 @@
   .c4 {
     @extend .span-d-6;
     @extend .d-l;
+    @extend .span-tp-6;
+    @extend .tp-l;
     @extend .span-ml-6;
+    @extend .ml-l;
     @extend .span-m-12;
   }
 }

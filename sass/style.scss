@@ -1,13 +1,15 @@
-@import "grid/system";
 @import "compass/css3";
 @import "compass/reset";
 @import "compass/typography";
 
 $background-color: #efefef;
+$blue: #1500ff;
+$orange: #ef2a00;
+$muted-pink: #ff7774;
 $font-family: Helvetica, Arial, sans-serif;
 
 body {
-  background: $background-color;
+  background: darken($background-color,5%);
   font-family: $font-family;
   padding: 2em 0;
   text-rendering: optimizeLegibility;
@@ -17,15 +19,18 @@ body {
 
   #wrap {
     margin: 0 auto;
-    max-width: 1040px;
+    max-width: 1140px;
     width: 100%;
+    @include transition-property(max-width);
+    @include transition-duration(0.4s);
   }
 }
 
 section {
-  @include container;
-  margin: 0 0 1%;
+  float: left;
+  margin: 2% 0;
   text-align: center;
+  width: 100%;
 }
 
 h1 {
@@ -38,12 +43,12 @@ h1 {
 h3 {
   @include adjust-font-size-to(18px, 0.8);
   font-weight: 300;
-  margin: 0 0 1em;
+  margin: 0 0 1.5em;
 }
 
 .box {
-  background: #1500ff;
-  @include border-radius(3px, 3px);
+  background: $orange;
+  //@include border-radius(3px, 3px);
   box-sizing: border-box;
   color: #efefef;
   float: left;
@@ -59,8 +64,32 @@ h3 {
   }
 }
 
-@media screen and (min-width: 0px) and (max-width: 1160px) {
-  body #wrap {
-    max-width: 80%;
+@media screen and (min-width: 768px) and (max-width: 1160px) {
+  body {
+    #wrap {
+      max-width: 80%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  h1 {
+    @include adjust-font-size-to(24px, 1.2);
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  body {
+    #wrap {
+      max-width: 90%;
+    }
+  }
+
+  h1 {
+    @include adjust-font-size-to(24px, 1.2);
+  }
+
+  p {
+    @include adjust-font-size-to(12px, 0.6);
   }
 }

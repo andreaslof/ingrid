@@ -1,5 +1,35 @@
+$default-class: d;
+$max-units: 24;
 $units: 2 4 6 8 10 12 14 16 18 20 22 24;
 $gutter-width: 1%;
 $pad-units: $units;
 
-@include ingrid($units, $gutter-width, 24, 'd', $pad-units);
+@include ingrid($units, $gutter-width, $max-units, $default-class, $pad-units);
+
+*[class$="hide"] {
+  display: block;
+}
+
+#{elements-of-type(inline)} {
+  &[class$="hide"] {
+    display: inline;
+  }
+}
+
+*[class$="show"] {
+  display: none;
+}
+
+.#{$default-class}-hide {
+  display: none !important;
+}
+
+.#{$default-class}-show {
+  display: block !important;
+}
+
+#{elements-of-type(inline)} {
+  &.#{$default-class}-show {
+    display: inline !important;
+  }
+}
