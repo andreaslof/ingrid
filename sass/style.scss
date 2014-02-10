@@ -49,7 +49,7 @@ h3 {
 }
 
 .box {
-  background: $orange;
+  background: $muted-pink;
   //@include border-radius(3px, 3px);
   box-sizing: border-box;
   color: #efefef;
@@ -83,7 +83,7 @@ h3 {
 @media screen and (min-width: 0px) and (max-width: 767px) {
   body {
     #wrap {
-      max-width: 90%;
+      max-width: 95%;
     }
   }
 

@@ -1,35 +1,33 @@
 $default-class: d;
-$max-units: 24;
-$units: 2 4 6 8 10 12 14 16 18 20 22 24;
-$gutter-width: 1%;
-$pad-units: $units;
+$columns: 24;
+$gutter-width: 10px;
 
-@include ingrid($units, $gutter-width, $max-units, $default-class, $pad-units);
+@include ingrid($columns, $gutter-width, $default-class);
 
-*[class$="hide"] {
-  display: block;
-}
+// *[class$="hide"] {
+//   display: block;
+// }
 
-#{elements-of-type(inline)} {
-  &[class$="hide"] {
-    display: inline;
-  }
-}
+// #{elements-of-type(inline)} {
+//   &[class$="hide"] {
+//     display: inline;
+//   }
+// }
 
-*[class$="show"] {
-  display: none;
-}
+// *[class$="show"] {
+//   display: none;
+// }
 
-.#{$default-class}-hide {
-  display: none !important;
-}
+// .#{$default-class}-hide {
+//   display: none !important;
+// }
 
-.#{$default-class}-show {
-  display: block !important;
-}
+// .#{$default-class}-show {
+//   display: block !important;
+// }
 
-#{elements-of-type(inline)} {
-  &.#{$default-class}-show {
-    display: inline !important;
-  }
-}
+// #{elements-of-type(inline)} {
+//   &.#{$default-class}-show {
+//     display: inline !important;
+//   }
+// }

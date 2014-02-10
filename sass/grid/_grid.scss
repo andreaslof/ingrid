@@ -1,7 +1,7 @@
 @import "compass/utilities/general/clearfix";
 
-@function column-width($n, $gutter-width, $col-width) {
-  @return $col-width * $n + $gutter-width * ($n - 1);
+@function column-width($n, $col-width) {
+  @return $col-width * $n;
 }
 
 @mixin container {
@@ -15,81 +15,52 @@
   float: left;
 }
 
-@mixin grid-base($gutter-width, $first-column-class: a-f, $last-column-class: a-l) {
-  .a-f {
-    margin-left: 0;
-    margin-right: $gutter-width;
-    clear: left !important;
-  }
-  .#{$first-column-class} {
-    margin-left: 0;
-    margin-right: $gutter-width;
-    clear: left;
-  }
-  .#{$last-column-class} {
-    margin-right: 0 !important;
-  }
-}
-
-@mixin sub_cols($num_child, $num_parent, $gutter-width, $col-width) {
-  $parent_size: ($col-width * $num_parent) + ($gutter-width * ($num_parent - 1));
-  $child_size: ($col-width * $num_child) + ($gutter-width * ($num_child - 1));
-  margin-left: ($gutter-width / $parent_size) * 100%;
-  width: ($child_size / $parent_size) * 100%;
-}
-
-@mixin push($n, $col-width, $gutter-width) {
+@mixin push($n, $col-width) {
   position: relative;
-  margin-left: $n*($col-width+$gutter-width) !important;
-  margin-right: -$n*($col-width+$gutter-width) !important;
+  margin-left: $n*$col-width !important;
+  margin-right: -$n*$col-width !important;
 }
 
-@mixin pull($n, $col-width, $gutter-width) {
+@mixin pull($n, $col-width) {
   position: relative;
-  margin-left: -$n*($col-width+$gutter-width) + $gutter-width !important;
+  margin-left: -$n*$col-width !important;
 }
 
-@mixin column($n, $max-unit, $col-width, $gutter-width, $first-column-class, $last-column-class) {
+@mixin column($n, $col-width, $gutter-width) {
   @include column-base;
-  @if $n == $max-unit {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    clear: both;
-  } @else {
-    margin-right: $gutter-width;
-    clear: none;
-  }
+  box-sizing: border-box;
   margin-bottom: $gutter-width;
-  width: column-width($n, $gutter-width, $col-width);
+  padding-left: ($gutter-width / 2);
+  padding-right: ($gutter-width / 2);
+  position: relative;
+  width: column-width($n, $col-width);
 }
 
-@mixin ingrid($units, $gutter-width, $max-unit, $media,
-              $pad-units: 0 2 4 6 8 10 12,
-              $first-column-class: "#{$media}-f",
-              $last-column-class: "#{$media}-l") {
+@mixin row($gutter-width) {
+  @include pie-clearfix;
+  margin-left: ($gutter-width / -2);
+  margin-right: ($gutter-width / -2);
+}
 
-  $col-width: (100% - ($gutter-width * ($max-unit - 1))) / $max-unit;
+@mixin ingrid($columns, $gutter-width, $media) {
 
-  @each $n in $pad-units {
-    .push-#{$media}-#{$n} {
-      @include push($n, $col-width, $gutter-width);
-    }
-    .pull-#{$media}-#{$n} {
-      @include pull($n, $col-width, $gutter-width);
-    }
-  }
+  $col-width: 100% / $columns;
 
-  @each $n in $units {
-    .span-#{$media}-#{$n} {
-      @include column($n, $max-unit, $col-width, $gutter-width, $first-column-class, $last-column-class);
-
-      /*@for $j from 1 through ($n - 1) {
-        .span#{$j} {
-          @include sub_cols($j, $n, $gutter-width, $col-width);
-        }
-      }*/
+  @for $n from 2 through $columns {
+    @if $n % 2 == 0 {
+      .push-#{$media}-#{$n} {
+        @include push($n, $col-width);
+      }
+      .pull-#{$media}-#{$n} {
+        @include pull($n, $col-width);
+      }
+      .span-#{$media}-#{$n} {
+        @include column($n, $col-width, $gutter-width);
+      }
     }
   }
 
-  @include grid-base($gutter-width, $first-column-class, $last-column-class);
+  .row {
+    @include row($gutter-width);
+  }
 }

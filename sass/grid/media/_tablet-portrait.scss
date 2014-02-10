@@ -1,32 +1,30 @@
-$media: 'tp';
-$max-units: 12;
-$units: 2 4 6 8 10 12;
-$gutter-width: 1%;
-$pad-units: $units;
+$media: tp;
+$columns: 12;
+$gutter-width: 5px;
 
 $media-min-width: 768px;
 $media-max-width: 980px;
 
 @media screen and (min-width: $media-min-width) and (max-width: $media-max-width) {
-  @include ingrid($units, $gutter-width, $max-units, $media, $pad-units);
+  @include ingrid($columns, $gutter-width, $media);
 
-  .#{$media}-hide,
-  .#{$default-class}-show {
-    display: none !important;
-  }
+  // .#{$media}-hide,
+  // .#{$default-class}-show {
+  //   display: none !important;
+  // }
 
-  .#{$media}-show,
-  .#{$default-class}-hide {
-    display: block !important;
-  }
+  // .#{$media}-show,
+  // .#{$default-class}-hide {
+  //   display: block !important;
+  // }
 
-  #{elements-of-type(inline)} {
-    &.#{$default-class}-show {
-      display: none !important;
-    }
-    &.#{$media}-show,
-    &.#{$default-class}-hide {
-      display: inline !important;
-    }
-  }
+  // #{elements-of-type(inline)} {
+  //   &.#{$default-class}-show {
+  //     display: none !important;
+  //   }
+  //   &.#{$media}-show,
+  //   &.#{$default-class}-hide {
+  //     display: inline !important;
+  //   }
+  // }
 }
