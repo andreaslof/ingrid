@@ -17,13 +17,13 @@
 
 @mixin push($n, $col-width) {
   position: relative;
-  margin-left: $n*$col-width !important;
-  margin-right: -$n*$col-width !important;
+  margin-left: $n*$col-width;
+  margin-right: -$n*$col-width;
 }
 
 @mixin pull($n, $col-width) {
   position: relative;
-  margin-left: -$n*$col-width !important;
+  margin-left: -$n*$col-width;
 }
 
 @mixin column($n, $col-width, $gutter-width) {
@@ -46,7 +46,7 @@
 
   $col-width: 100% / $columns;
 
-  @for $n from 2 through $columns {
+  @for $n from 0 through $columns {
     @if $n % 2 == 0 {
       .push-#{$media}-#{$n} {
         @include push($n, $col-width);
@@ -54,9 +54,11 @@
       .pull-#{$media}-#{$n} {
         @include pull($n, $col-width);
       }
+      @if $n != 0 and $n % 2 == 0 {
       .span-#{$media}-#{$n} {
         @include column($n, $col-width, $gutter-width);
       }
+    }
     }
   }
 

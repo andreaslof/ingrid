@@ -30,53 +30,41 @@ body {
 
 section {
   float: left;
-  margin: 2% 0;
-  text-align: center;
+  margin: 1em 0;
   width: 100%;
 }
 
 h1 {
-  @include adjust-font-size-to(36px, 1.5);
+  @include adjust-font-size-to(36px, 2);
   font-weight: 300;
-  margin: 0 0 2em;
-  text-align: center;
 }
 
 h3 {
   @include adjust-font-size-to(18px, 0.8);
-  font-weight: 300;
-  margin: 0 0 1.5em;
+  font-weight: 700;
+  margin: 0 0 1em;
 }
 
 .box {
-  background: $muted-pink;
-  //@include border-radius(3px, 3px);
+  background: $blue;
   box-sizing: border-box;
   color: #efefef;
   float: left;
   font-weight: 500;
-  @include adjust-font-size-to(16px, 0.8);
+  min-height: 60px;
   height: auto;
   padding: 20px 0;
   text-align: center;
   width: 100%;
-
-  + .box {
-    margin: 0;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1160px) {
-  body {
-    #wrap {
-      //max-width: 80%;
-    }
-  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 980px) {
   h1 {
     @include adjust-font-size-to(24px, 1.2);
+  }
+
+  h3 {
+    @include adjust-font-size-to(16px, 0.8);
   }
 }
 
@@ -89,6 +77,10 @@ h3 {
 
   h1 {
     @include adjust-font-size-to(24px, 1.2);
+  }
+
+  h3 {
+    @include adjust-font-size-to(16px, 0.8);
   }
 
   p {
