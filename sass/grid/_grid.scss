@@ -1,4 +1,5 @@
 @import "compass/utilities/general/clearfix";
+@import "compass/css3/box-sizing";
 
 @function column-width($n, $col-width) {
   @return $col-width * $n;
@@ -28,7 +29,7 @@
 
 @mixin column($n, $col-width, $gutter-width) {
   @include column-base;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   margin-bottom: $gutter-width;
   padding-left: ($gutter-width / 2);
   padding-right: ($gutter-width / 2);
