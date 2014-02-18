@@ -47,7 +47,7 @@ h3 {
 
 .box {
   background: $blue;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   color: #efefef;
   float: left;
   font-weight: 500;
