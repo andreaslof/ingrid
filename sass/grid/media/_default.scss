@@ -4,30 +4,32 @@ $gutter-width: 10px;
 
 @include ingrid($columns, $gutter-width, $default-class);
 
-// *[class$="hide"] {
-//   display: block;
-// }
+@if $hide-classes {
+  *[class$="hide"] {
+    display: block;
+  }
 
-// #{elements-of-type(inline)} {
-//   &[class$="hide"] {
-//     display: inline;
-//   }
-// }
+  #{elements-of-type(inline)} {
+    &[class$="hide"] {
+      display: inline;
+    }
+  }
 
-// *[class$="show"] {
-//   display: none;
-// }
+  *[class$="show"] {
+    display: none;
+  }
 
-// .#{$default-class}-hide {
-//   display: none !important;
-// }
+  .#{$default-class}-hide {
+    display: none !important;
+  }
 
-// .#{$default-class}-show {
-//   display: block !important;
-// }
+  .#{$default-class}-show {
+    display: block !important;
+  }
 
-// #{elements-of-type(inline)} {
-//   &.#{$default-class}-show {
-//     display: inline !important;
-//   }
-// }
+  #{elements-of-type(inline)} {
+    &.#{$default-class}-show {
+      display: inline !important;
+    }
+  }
+}

@@ -8,23 +8,25 @@ $media-max-width: 479px;
 @media screen and (min-width: $media-min-width) and (max-width: $media-max-width) {
   @include ingrid($columns, $gutter-width, $media);
 
-  // .#{$media}-hide,
-  // .#{$default-class}-show {
-  //   display: none !important;
-  // }
+  @if $hide-classes {
+    .#{$media}-hide,
+    .#{$default-class}-show {
+      display: none !important;
+    }
 
-  // .#{$media}-show,
-  // .#{$default-class}-hide {
-  //   display: block !important;
-  // }
+    .#{$media}-show,
+    .#{$default-class}-hide {
+      display: block !important;
+    }
 
-  // #{elements-of-type(inline)} {
-  //   &.#{$default-class}-show {
-  //     display: none !important;
-  //   }
-  //   &.#{$media}-show,
-  //   &.#{$default-class}-hide {
-  //     display: inline !important;
-  //   }
-  // }
+    #{elements-of-type(inline)} {
+      &.#{$default-class}-show {
+        display: none !important;
+      }
+      &.#{$media}-show,
+      &.#{$default-class}-hide {
+        display: inline !important;
+      }
+    }
+  }
 }
