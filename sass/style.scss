@@ -6,11 +6,12 @@ $background-color: #efefef;
 $blue: #1500ff;
 $orange: #ef2a00;
 $muted-pink: #ff7774;
-$font-family: Helvetica, Arial, sans-serif;
+$font-family: "Trim Mono Light", monospace;
 
 body {
   background: $background-color;
   font-family: $font-family;
+  font-style: normal;
   padding: 2em 0;
   text-rendering: optimizeLegibility;
   width: 100%;
@@ -36,12 +37,12 @@ section {
 
 h1 {
   @include adjust-font-size-to(36px, 2);
-  font-weight: 300;
+  font-weight: 200;
 }
 
 h3 {
   @include adjust-font-size-to(18px, 0.8);
-  font-weight: 700;
+  font-weight: 200;
   margin: 0 0 1em;
 }
 
@@ -50,7 +51,7 @@ h3 {
   @include box-sizing(border-box);
   color: #efefef;
   float: left;
-  font-weight: 500;
+  font-weight: 200;
   min-height: 60px;
   height: auto;
   padding: 20px 0;
