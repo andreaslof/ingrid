@@ -29,6 +29,45 @@
         <p>Note; Safari does not make use of correct subpixel rendering, and since InGrid is based upon percentage-based widths the columns can sometimes appear as they lack 1-2 pixels one some columns. This is something that one have to live with until Safari makes use of correct subpixel rendering (i.e. not rounding down to the nearest "full" pixel).</p>
       </div>
     </div>
+    <section class="spine">
+      <h3>Spine</h3>
+      <div class="row">
+        <div class="span-d-12 span-tp-8 span-ml-8 span-m-12">
+          <p>InGrid features a spine-aligned grid, which makes it easy to construct a layout that, if used right, can be more interesting than the traditional grid.</p>
+        </div>
+        <div class="span-d-12 span-tp-8 span-ml-8 span-m-12">
+          <p>The spine is constructed of two even-sized holding columns — <code>.left</code> and <code>.right</code> — which within you place different sized columns.<br>InGrid ships with three predefined sizes — <code>.wide</code>, <code>.normal</code>, <code>.small</code>.</p>
+        </div>
+      </div>
+      <div class="row">
+        <article class="left">
+          <div class="row">
+            <div class="wide">
+              <div class="box"><p>wide</p></div>
+            </div>
+            <div class="normal">
+              <div class="box"><p>normal</p></div>
+            </div>
+            <div class="small">
+              <div class="box"><p>small</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="right">
+          <div class="row">
+            <div class="normal">
+              <div class="box"><p>normal</p></div>
+            </div>
+            <div class="wide">
+              <div class="box"><p>wide</p></div>
+            </div>
+            <div class="small">
+              <div class="box"><p>small</p></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
     <section class="l-2c">
       <h3>Two column asymmetrical</h3>
       <div class="row">
