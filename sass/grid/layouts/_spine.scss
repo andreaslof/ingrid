@@ -1,0 +1,39 @@
+.spine {
+  @include container;
+
+  .left,
+  .right {
+    @extend .span-d-12;
+    @extend .span-tp-6;
+    @extend .span-ml-6;
+    @extend .span-m-12;
+  }
+
+  .left {
+    & .wide,
+    & .normal,
+    & .small {
+      float: right;
+    }
+  }
+
+  .wide {
+    @extend .span-d-20;
+    @extend .span-tp-10;
+    @extend .span-ml-10;
+    @extend .span-m-12;
+  }
+
+  .normal {
+    @extend .span-d-16;
+    @extend .span-tp-8;
+    @extend .span-ml-8;
+    @extend .span-m-12;
+  }
+
+  .small {
+    @extend .span-d-12;
+    @extend .span-tp-3;
+    @extend .span-ml-3;
+  }
+}
