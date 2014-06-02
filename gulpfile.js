@@ -1,6 +1,5 @@
 var gulp = require('gulp')
-  , compass = require('gulp-compass')
-  , watcher = {};
+  , compass = require('gulp-compass');
 
 gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
@@ -18,11 +17,10 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-  watcher = gulp.watch('sass/**/*.scss', ['sass']);
-});
-
-watcher.on('change', function (evt) {
-  console.log('[watcher] File '+evt.path.replace(/.*(?=sass)/,'')+' was '+evt.type+', compiling...');
+  gulp.watch('sass/**/*.scss', ['sass'])
+      .on('change', function (evt) {
+        console.log('[watcher] File '+evt.path.replace(/.*(?=sass)/,'')+' was '+evt.type+', compiling...');
+      });
 });
 
 gulp.task('ci', ['sass']);
