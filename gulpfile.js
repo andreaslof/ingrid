@@ -1,6 +1,5 @@
 var gulp = require('gulp')
-  , compass = require('gulp-compass')
-  , watcher = gulp.watch('sass/**/*.scss', ['sass']);
+  , compass = require('gulp-compass');
 
 gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
@@ -15,6 +14,10 @@ gulp.task('sass', function () {
       .on('error', function (err) {
         console.log('Carp! An error occured: '+err);
       });
+});
+
+gulp.task('watch', function () {
+  gulp.watch('sass/**/*.scss', ['sass']);
 });
 
 watcher.on('change', function (evt) {
