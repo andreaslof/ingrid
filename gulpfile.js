@@ -1,5 +1,6 @@
 var gulp = require('gulp')
-  , compass = require('gulp-compass');
+  , compass = require('gulp-compass')
+  , watcher = {};
 
 gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
@@ -17,7 +18,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('sass/**/*.scss', ['sass']);
+  watcher = gulp.watch('sass/**/*.scss', ['sass']);
 });
 
 watcher.on('change', function (evt) {
