@@ -1,8 +1,8 @@
 var gulp = require('gulp')
   , compass = require('gulp-compass')
-  , watcher = gulp.watch('sass/**/*.scss', ['default']);;
+  , watcher = gulp.watch('sass/**/*.scss', ['sass']);
 
-gulp.task('watch', function () {
+gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
       .pipe(compass({
         style: 'compressed',
@@ -13,12 +13,14 @@ gulp.task('watch', function () {
         console.log('Compiled '+msg);
       })
       .on('error', function (err) {
-        console.log('Carp! An error occured; '+err);
+        console.log('Carp! An error occured: '+err);
       });
 });
 
 watcher.on('change', function (evt) {
   console.log('[watcher] File '+evt.path.replace(/.*(?=sass)/,'')+' was '+evt.type+', compiling...');
-})
+});
 
-gulp.task('default', ['watch']);
+gulp.task('ci', ['sass']);
+gulp.task('default', ['sass']);
+

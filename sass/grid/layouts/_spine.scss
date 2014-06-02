@@ -33,7 +33,8 @@
 
   .small {
     @extend .span-d-12;
-    @extend .span-tp-3;
-    @extend .span-ml-3;
+    @extend .span-tp-6;
+    @extend .span-ml-6;
+    @extend .span-m-12;
   }
 }
