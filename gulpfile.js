@@ -1,6 +1,5 @@
 var gulp = require('gulp')
   , compass = require('gulp-compass')
-  , minifyCSS = require('gulp-minify-css')
   , watcher = gulp.watch('sass/**/*.scss', ['default']);;
 
 gulp.task('watch', function () {

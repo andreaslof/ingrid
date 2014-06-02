@@ -1,0 +1,28 @@
+{
+  "name": "InGrid",
+  "version": "0.9.0",
+  "homepage": "https://andreaslof.github.io/ingrid/",
+  "authors": [
+    "Andreas Löf Hermansson <a@andreaslof.se>"
+  ],
+  "description": "A responsive, fluid-width grid system with some easy-to-use layout modes.",
+  "main": "sass/grid/ingrid.scss",
+  "keywords": [
+    "grid",
+    "layout",
+    "scss",
+    "sass",
+    "css",
+    "grid",
+    "system",
+    "spine"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

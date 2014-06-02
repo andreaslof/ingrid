@@ -1,10 +1,9 @@
 {
-  "author": "Andreas Löf Hermansson <andreas.lof@kurppahosk.com>",
-  "name": "ingrid",
-  "version": "0.0.1",
+  "author": "Andreas Löf Hermansson <a@andreaslof.se>",
+  "name": "InGrid",
+  "version": "0.9.0",
   "dependencies": {},
   "devDependencies": {
-    "gulp-minify-css": "~0.3.0",
     "gulp-watch": "~0.5.0",
     "gulp": ">=3.5.2",
     "gulp-compass": "~1.1.3"
