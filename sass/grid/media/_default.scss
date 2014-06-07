@@ -2,34 +2,36 @@ $default-class: d;
 $columns: 24;
 $gutter-width: 10px;
 
-@include ingrid($columns, $gutter-width, $default-class);
+@media screen and (min-width: 980px) {
+  @include ingrid($columns, $gutter-width, $default-class);
 
-@if $hide-classes {
-  *[class$="hide"] {
-    display: block;
-  }
-
-  #{elements-of-type(inline)} {
-    &[class$="hide"] {
-      display: inline;
+  @if $hide-classes {
+    *[class$="hide"] {
+      display: block;
     }
-  }
 
-  *[class$="show"] {
-    display: none;
-  }
+    #{elements-of-type(inline)} {
+      &[class$="hide"] {
+        display: inline;
+      }
+    }
 
-  .#{$default-class}-hide {
-    display: none !important;
-  }
+    *[class$="show"] {
+      display: none;
+    }
 
-  .#{$default-class}-show {
-    display: block !important;
-  }
+    .#{$default-class}-hide {
+      display: none !important;
+    }
 
-  #{elements-of-type(inline)} {
-    &.#{$default-class}-show {
-      display: inline !important;
+    .#{$default-class}-show {
+      display: block !important;
+    }
+
+    #{elements-of-type(inline)} {
+      &.#{$default-class}-show {
+        display: inline !important;
+      }
     }
   }
 }
