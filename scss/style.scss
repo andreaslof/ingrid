@@ -1,9 +1,8 @@
-@import "compass/css3";
 @import "compass/reset";
 @import "compass/typography";
 
 $background-color: #efefef;
-$blue: #1500ff;
+$blue: #152cce;
 $orange: #ef2a00;
 $muted-pink: #ff7774;
 $text-color: #333;
@@ -18,7 +17,7 @@ body {
   padding: 2em 0;
   text-rendering: optimizeLegibility;
   width: 100%;
-  word-spacing: -0.03em;
+  word-spacing: -0.13em;
   //-webkit-font-smoothing: antialiased;
 
   #wrap {
@@ -27,8 +26,8 @@ body {
     max-width: 1160px;
     padding: 10px;
     width: 100%;
-    @include transition-property(max-width);
-    @include transition-duration(0.4s);
+    transition-property: max-width;
+    transition-duration: 0.24s;
   }
 }
 
@@ -50,15 +49,20 @@ h3 {
 }
 
 a {
-  border-bottom: 1px solid $border-color;
+  background-image: linear-gradient(to bottom, rgba(#000,0) 50%, rgba(#000,.5) 50%);
+  background-position: 0 17px;
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
   color: $text-color;
-  padding: 2px;
   text-decoration: none;
+  text-shadow: 0 1px 0 $background-color, 1px 0 0 $background-color, -1px 0 0 $background-color;
+  transition: all 0.12s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $blue;
     color: #efefef;
-    border-color: #efefef;
+    text-shadow: none;
   }
 }
 
@@ -67,14 +71,14 @@ p {
   margin: 1em 0;
   padding: 1em 0 0;
 
-  @include adjust-font-size-to(16px, 0.9);
+  @include adjust-font-size-to(16px, 1.1);
 }
 
 code {
-  background-color: darken($background-color, 10%);
+  background-color: darken($background-color, 5%);
   border: 1px solid darken($background-color, 15%);
-  border-radius: 3px;
-  padding: 1px 2px;
+  border-radius: 2px;
+  padding: 1px 0;
 
   & p {
     display: inline-block;
@@ -83,7 +87,7 @@ code {
 
 .box {
   background: $blue;
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   color: #efefef;
   float: left;
   font-weight: 200;

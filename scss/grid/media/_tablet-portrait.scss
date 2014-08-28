@@ -1,9 +1,8 @@
-$media: m;
+$media: tp;
 $columns: 12;
-$gutter-width: 5px;
 
-$media-min-width: 0px;
-$media-max-width: 479px;
+$media-min-width: 768px;
+$media-max-width: 980px;
 
 @media screen and (min-width: $media-min-width) and (max-width: $media-max-width) {
   @include ingrid($columns, $gutter-width, $media);

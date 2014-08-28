@@ -1,0 +1,70 @@
+@import "compass/utilities/general/clearfix";
+
+@function column-width($n, $columns) {
+  @return percentage($n / $columns);
+}
+
+@mixin container {
+  @include pie-clearfix;
+  float: left;
+  width: 100%;
+}
+
+@mixin column-base {
+  @include pie-clearfix;
+  box-sizing: border-box;
+  float: left;
+}
+
+@mixin push($n, $columns) {
+  position: relative;
+  margin-left: column-width($n, $columns);
+  margin-right: -(column-width($n, $columns));
+}
+
+@mixin pull($n, $columns) {
+  position: relative;
+  margin-left: -(column-width($n, $columns));
+}
+
+@mixin column($gutter-width) {
+  @include column-base;
+  margin-bottom: $gutter-width;
+  min-height: 1px;
+  padding-left: $gutter-width;
+  position: relative;
+}
+
+@mixin row($gutter-width) {
+  @include pie-clearfix;
+  margin-left: -$gutter-width;
+}
+
+@mixin ingrid($columns, $gutter-width, $media, $list: '.span-#{$media}-1') {
+  @for $n from 1 through $columns {
+    @if $n > 1 {
+      $list: "#{$list}, .span-#{$media}-#{$n}";
+    }
+
+    @if $n % 2 == 0 {
+      .push-#{$media}-#{$n} {
+        @include push($n, $columns);
+      }
+      .pull-#{$media}-#{$n} {
+        @include pull($n, $columns);
+      }
+      .span-#{$media}-#{$n} {
+        width: column-width($n, $columns);
+      }
+    }
+  }
+
+  // Add basic 
+  #{$list} {
+    @include column($gutter-width);
+  }
+
+  .row {
+    @include row($gutter-width);
+  }
+}

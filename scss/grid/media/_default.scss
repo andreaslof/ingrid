@@ -1,6 +1,5 @@
 $default-class: d;
 $columns: 24;
-$gutter-width: 10px;
 
 @media screen and (min-width: 980px) {
   @include ingrid($columns, $gutter-width, $default-class);

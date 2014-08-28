@@ -1,28 +1,32 @@
-var gulp = require('gulp')
-  , compass = require('gulp-compass');
+var gulp  = require('gulp')
+  , $     = require('gulp-load-plugins')({camelize: true});
 
-gulp.task('sass', function () {
-  gulp.src('./sass/**/*.scss')
-      .pipe(compass({
-        style: 'compressed',
-        css: 'css',
-        sass: 'sass'
-      }))
-      .on('success', function (msg) {
-        console.log('Compiled '+msg);
-      })
-      .on('error', function (err) {
-        console.log('Carp! An error occured: '+err);
-      });
+var paths = {
+  'scss': 'scss/**/*.scss'
+};
+
+gulp.task('clean', function () {
+  return gulp.src('css', {read: false})
+              .pipe($.rimraf());
+});
+
+gulp.task('grid', ['clean'], function () {
+  return gulp.src(paths.scss)
+              .pipe($.rubySass({
+                "compass": true,
+                "style": "compressed"
+              }).on('error', function (msg) { console.log(msg); }))
+              .pipe($.autoprefixer('last 3 version', 'ie 9'))
+              .pipe(gulp.dest('css'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch('sass/**/*.scss', ['sass'])
+  gulp.watch(paths.scss, ['grid'])
       .on('change', function (evt) {
         console.log('[watcher] File '+evt.path.replace(/.*(?=sass)/,'')+' was '+evt.type+', compiling...');
       });
 });
 
-gulp.task('ci', ['sass']);
-gulp.task('default', ['sass']);
+gulp.task('ci', ['grid']);
+gulp.task('default', ['grid']);
 

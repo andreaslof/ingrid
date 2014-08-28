@@ -1,12 +1,15 @@
 {
   "author": "Andreas Löf Hermansson <a@andreaslof.se>",
+  "repository": "git@github.com:andreaslof/ingrid.git",
   "name": "InGrid",
   "version": "0.9.0",
   "dependencies": {},
   "devDependencies": {
-    "gulp-watch": "~0.5.0",
     "gulp": ">=3.5.2",
-    "gulp-compass": "~1.1.3"
+    "gulp-autoprefixer": "0.0.9",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-ruby-sass": "^0.7.1"
   },
   "engines": {
     "node": ">=0.8.0"
